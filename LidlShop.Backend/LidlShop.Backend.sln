@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LidlShop.API", "LidlShop.API\LidlShop.API.csproj", "{FC5824EF-71EB-46D0-B1A7-F588BDA8A327}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LidlShop.BL", "LidlShop.BL\LidlShop.BL.csproj", "{F4622064-96A8-4D34-BA98-75BA332F17CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LidlShop.Data", "LidlShop.Data\LidlShop.Data.csproj", "{0A3A1C44-C24F-456C-A2EE-E7F23542C190}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{FC5824EF-71EB-46D0-B1A7-F588BDA8A327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC5824EF-71EB-46D0-B1A7-F588BDA8A327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC5824EF-71EB-46D0-B1A7-F588BDA8A327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4622064-96A8-4D34-BA98-75BA332F17CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4622064-96A8-4D34-BA98-75BA332F17CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4622064-96A8-4D34-BA98-75BA332F17CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4622064-96A8-4D34-BA98-75BA332F17CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3A1C44-C24F-456C-A2EE-E7F23542C190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3A1C44-C24F-456C-A2EE-E7F23542C190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3A1C44-C24F-456C-A2EE-E7F23542C190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3A1C44-C24F-456C-A2EE-E7F23542C190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
