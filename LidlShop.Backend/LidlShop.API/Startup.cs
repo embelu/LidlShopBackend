@@ -1,7 +1,9 @@
+using LidlShop.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +29,11 @@ namespace LidlShop.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            #region Injection
+            var connectionDB = Configuration.GetConnectionString("FormationDB");
+            services.AddDbContext<DB_FormationContext>(options => options.UseSqlServer(connectionDB));
+            #endregion
 
             services.AddSwaggerGen(c =>
             {
