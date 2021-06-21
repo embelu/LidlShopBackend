@@ -1,4 +1,8 @@
+using LidlShop.BL.Implementations;
+using LidlShop.BL.Interfaces;
 using LidlShop.Data.Entities;
+using LidlShop.Data.Interfaces;
+using LidlShop.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +37,9 @@ namespace LidlShop.API
             #region Injection
             var connectionDB = Configuration.GetConnectionString("FormationDB");
             services.AddDbContext<DB_FormationContext>(options => options.UseSqlServer(connectionDB));
+
+            services.AddTransient<ICategorieBL, CategorieBL>();
+            services.AddTransient<ICategorieRepository, CategorieRepository>();
             #endregion
 
             services.AddSwaggerGen(c =>
