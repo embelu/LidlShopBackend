@@ -4,3 +4,6 @@ Nugget's nécessaires pour Scaffolding :
 EntityFrameworkCore.SqlServer
 Microsoft.EntityFrameworkCore.Tools
 Microsoft.EntityFrameworkCore.Design
+
+Nugget nécessaire pour l'automapper :
+Install-Package AutoMapper
