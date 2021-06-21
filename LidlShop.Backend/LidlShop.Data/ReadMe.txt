@@ -7,3 +7,11 @@ Microsoft.EntityFrameworkCore.Design
 
 Nugget nécessaire pour l'automapper :
 Install-Package AutoMapper
+
+Package nécessaires pour HealthChecks (accessible via https://localhost:44330/health)
+Install-Package Microsoft.Extensions.Diagnostics.HealthChecks
+Install-Package Newtonsoft.Json
+// Pour vérifications de la connection à une DB via le DB context :
+Install-Package Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore   
+// Pour vérifications de la disponibilité d'une URL ou d'un fichier externe. 
+Install-Package AspNetCore.HealthChecks.Uris
