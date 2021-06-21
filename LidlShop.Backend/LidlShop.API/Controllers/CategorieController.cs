@@ -59,7 +59,6 @@ namespace LidlShop.API.Controllers
 
                 return NotFound(e.Message);
             }
-            
         }
 
 
