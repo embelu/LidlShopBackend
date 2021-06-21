@@ -43,6 +43,9 @@ namespace LidlShop.API
 
             services.AddTransient<IProduitBL, ProduitBL>();
             services.AddTransient<IProduitRepository, ProduitRepository>();
+
+            services.AddTransient<ICommandeBL, CommandeBL>();
+            services.AddTransient<ICommandeRepository, CommandeRepository>();
             #endregion
 
             services.AddSwaggerGen(c =>
