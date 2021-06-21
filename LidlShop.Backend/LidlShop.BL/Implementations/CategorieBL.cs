@@ -1,4 +1,5 @@
-﻿using LidlShop.BL.Interfaces;
+﻿using LidlShop.BL.Exceptions;
+using LidlShop.BL.Interfaces;
 using LidlShop.BL.Models;
 using LidlShop.Data.Entities;
 using LidlShop.Data.Interfaces;
@@ -32,6 +33,11 @@ namespace LidlShop.BL.Implementations
         {
             List<LidlCategorieLb> lidlCategorieLBs = _categorieRepository.GetAll();
 
+            if (lidlCategorieLBs.Count == 0)
+            {
+                throw new NotFoundException("Pas de catégories présentes en DB");
+            }
+
             List<CategorieDTO> categorieDTOs = new List<CategorieDTO>();
 
             foreach (var item in lidlCategorieLBs)
@@ -46,6 +52,11 @@ namespace LidlShop.BL.Implementations
         public CategorieDTO GetById(int id)
         {
             LidlCategorieLb lidlCategorieLb = _categorieRepository.GetById(id);
+
+            if (lidlCategorieLb == null)
+            {
+                throw new NotFoundException($"Categorie inexistante :  {id} !");
+            }
 
             return new CategorieDTO()
             {
