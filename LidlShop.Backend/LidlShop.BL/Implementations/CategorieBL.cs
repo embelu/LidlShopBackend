@@ -67,12 +67,7 @@ namespace LidlShop.BL.Implementations
 
             //}
 
-
             return categorieDTOs;
-
-  
-
-  
         }
 
 

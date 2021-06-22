@@ -1,4 +1,5 @@
 ﻿using LidlShop.BL.Exceptions;
+using LidlShop.BL.Helpers;
 using LidlShop.BL.Interfaces;
 using LidlShop.BL.Models;
 using LidlShop.Data.Entities;
@@ -23,11 +24,14 @@ namespace LidlShop.BL.Implementations
         {
             LidlProduitLb lidlProduitLb = new LidlProduitLb();
 
-            lidlProduitLb.Description = produitDTO.Description;
-            lidlProduitLb.IdCategorie = produitDTO.IdCategorie;
-            lidlProduitLb.Nom = produitDTO.Nom;
-            lidlProduitLb.Prix = produitDTO.Prix;
-            lidlProduitLb.LienImg = produitDTO.LienImg;
+            lidlProduitLb = produitDTO.FromDTO();
+
+            // REMPLACE PAR LA METHODE D'EXTENSION
+            //lidlProduitLb.Description = produitDTO.Description;
+            //lidlProduitLb.IdCategorie = produitDTO.IdCategorie;
+            //lidlProduitLb.Nom = produitDTO.Nom;
+            //lidlProduitLb.Prix = produitDTO.Prix;
+            //lidlProduitLb.LienImg = produitDTO.LienImg;
 
             return _produitRepository.Post(lidlProduitLb);
         }
@@ -41,15 +45,18 @@ namespace LidlShop.BL.Implementations
                 throw new NotFoundException($"Produit inexistant :  {id} !");
             }
 
-            return new ProduitDTO()
-            {
-                Id = lidlProduitLb.Id,
-                Nom = lidlProduitLb.Nom,
-                Description = lidlProduitLb.Description,
-                Prix = lidlProduitLb.Prix,
-                LienImg = lidlProduitLb.LienImg,
-                IdCategorie = lidlProduitLb.IdCategorie,
-            };
+            return lidlProduitLb.ToDTO();
+
+            // REMPLACE PAR METHODE D'EXTENSION
+            //return new ProduitDTO()
+            //{
+            //    Id = lidlProduitLb.Id,
+            //    Nom = lidlProduitLb.Nom,
+            //    Description = lidlProduitLb.Description,
+            //    Prix = lidlProduitLb.Prix,
+            //    LienImg = lidlProduitLb.LienImg,
+            //    IdCategorie = lidlProduitLb.IdCategorie,
+            //};
         }
 
         public List<ProduitDTO> GetAll()
