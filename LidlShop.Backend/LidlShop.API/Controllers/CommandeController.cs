@@ -33,7 +33,54 @@ namespace LidlShop.API.Controllers
 
                 return BadRequest(e.Message);
             }
-            
+        }
+
+
+        [HttpGet]
+        public ActionResult<List<CommandeDTO>> GetAll()
+        {
+            try
+            {
+                return Ok(_commandeBL.GetAll());
+            }
+            catch (NotFoundException e)
+            {
+
+                return NotFound(e.Message);
+            }
+        }
+
+
+        // GET api/<CommandeController>/5
+        [HttpGet("{id}")]
+        public ActionResult<CommandeDTO> GetById(int id)
+        {
+            try
+            {
+                return Ok(_commandeBL.GetById(id));
+            }
+            catch (NotFoundException e)
+            {
+
+                return NotFound(e.Message);
+            }
+        }
+
+
+        // DELETE api/<CommandeController>/5
+        [HttpDelete("{id}")]
+        public ActionResult<int> Delete(int id)
+        {
+            return Ok(_commandeBL.Delete(id));
+        }
+
+        // PUT api/<CommandeController>/5
+        [HttpPut("{id}")]
+        public ActionResult<int> Put(int id, [FromBody] CommandeDTO commandeDTOUpdated)
+        {
+            if (id != commandeDTOUpdated.Id) return BadRequest();
+
+            return _commandeBL.Put(commandeDTOUpdated);
         }
     }
 }
